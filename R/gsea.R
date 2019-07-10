@@ -1,4 +1,4 @@
-#' Function "gsea"
+#' Function "gseaI"
 #'
 #' This function performs GSEA analysis.
 #' @importFrom stats aggregate
@@ -17,7 +17,7 @@
 #' @return a list of gene rank based on entrezgene ID, result of GSEA and an ExpressionSet object of normalized counts matrix based on entrezgene IDs.
 #' @export
 
-gsea <- function(res_anno, geneEX, geneSet, condition, N, n1, n2, Min, Max) {
+gseaI <- function(res_anno, geneEX, geneSet, condition, N, n1, n2, Min, Max) {
   # set seed
   SEED <- 20190606
   set.seed(SEED)
