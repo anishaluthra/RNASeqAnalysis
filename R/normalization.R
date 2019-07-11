@@ -8,6 +8,10 @@
 #' @export
 
 normalization <- function(res, geneLGC) {
+  # set seed
+  SEED <- 20190606
+  set.seed(SEED)
+
   ## Gene expression normalization(use conditional quantile normalization)
   gccontent <- rep(0, nrow(res))
   gccontent <- sapply(X=1:nrow(res), FUN=function(x) {

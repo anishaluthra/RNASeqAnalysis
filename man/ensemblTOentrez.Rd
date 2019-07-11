@@ -12,7 +12,7 @@ ensemblTOentrez(geneExp, geneSymbol)
 \item{geneSymbol}{a data frame with all gene annotation information}
 }
 \value{
-a list consisting of the corresponding entrezgene IDs and a new data object with entrezgene ID as rownames
+a list consisting of a new data object with entrezgene ID as rownames
 }
 \description{
 This function can be called without DESeq, input a gene expression matrix based on ensembl IDs

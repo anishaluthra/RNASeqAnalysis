@@ -5,16 +5,17 @@
 #' @importFrom plyr join
 #' @param geneExp a data object with ensembl IDs as rownames
 #' @param geneSymbol a data frame with all gene annotation information
-#' @return a list consisting of the character vector of gene names and a new counts matrix with gene names as rownames.
+#' @return a list consisting of a new counts matrix with gene names as rownames.
 #' @export
 
 ensemblTOname_II <- function(geneExp, geneSymbol) {
-  ensembl <- data.frame(ensembl_gene_id = row.names(geneExp))
-  name <- join(ensembl, geneSymbol[, c("external_gene_name", "ensembl_gene_id")], by="ensembl_gene_id")
-  name <- name[!duplicated(name$ensembl_gene_id), ]
-  names <- as.character(name$external_gene_name)
-  row.names(geneExp) <- names
+  geneExpI <- as.data.frame(geneExp)
+  geneExpI$ensembl_gene_id <- row.names(geneExp)
+  geneExpI <- join(geneExpI, geneSymbol[, c("external_gene_name", "ensembl_gene_id")], by="ensembl_gene_id")
+  geneExpI <- aggregate(geneExpI[, 1:ncol(geneExp)], by=list(gene_name=geneExpI$external_gene_name), FUN=mean)
+  row.names(geneExpI) <- as.character(geneExpI$gene_name)
+  geneExpI <- as.matrix(geneExpI)[, -1]
 
   # return result
-  return(list("name" = name, "geneExp" = geneExp))
+  return(list("geneExp" = geneExp))
 }

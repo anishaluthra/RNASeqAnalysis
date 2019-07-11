@@ -12,7 +12,7 @@ ensemblTOname_II(geneExp, geneSymbol)
 \item{geneSymbol}{a data frame with all gene annotation information}
 }
 \value{
-a list consisting of the character vector of gene names and a new counts matrix with gene names as rownames.
+a list consisting of a new counts matrix with gene names as rownames.
 }
 \description{
 This function can be called without DESeq, it imports the gene counts matrix based on ensembl IDs and

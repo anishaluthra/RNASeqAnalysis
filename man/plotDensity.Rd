@@ -15,6 +15,9 @@ plotDensity(info, ssgseaRes, type, Date)
 
 \item{Date}{a Date object obtained from Sys.Date}
 }
+\value{
+the density plot object
+}
 \description{
 This function generates scatter plot with marginal density distributions
 }
