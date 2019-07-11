@@ -8,6 +8,7 @@
 #' @param ssgseaRes the result matrix of ssGSEA
 #' @param type type of data, group information
 #' @param Date a Date object obtained from Sys.Date
+#' @return the density plot object
 #' @export
 
 plotDensity <- function(info, ssgseaRes, type, Date) {
@@ -39,4 +40,7 @@ plotDensity <- function(info, ssgseaRes, type, Date) {
 
   g <- arrangeGrob(plotDen, nrow = 1, ncol = 1)
   ggsave(g, filename = paste0("DensityPlot_", type, "_", Date, ".pdf"), width = 10, dpi = 300, limitsize = FALSE)
+
+  # return result
+  return(plotDen)
 }
