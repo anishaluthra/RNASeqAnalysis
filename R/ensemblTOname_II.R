@@ -17,5 +17,5 @@ ensemblTOname_II <- function(geneExp, geneSymbol) {
   geneExpI <- as.matrix(geneExpI)[, -1]
 
   # return result
-  return(list("geneExp" = geneExp))
+  return(list("geneExp" = geneExpI))
 }

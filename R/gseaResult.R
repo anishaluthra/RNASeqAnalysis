@@ -1,6 +1,7 @@
 #' Function "gseaResult"
-#'
 #' This function stores customized results from GSEA
+#'
+#' @include entrezTOname.R
 #' @importFrom data.table fwrite
 #' @param geneSymbol a data frame with all gene annotation information
 #' @param gseaRes the result data frame from GSEA
@@ -11,7 +12,6 @@
 #' @export
 
 gseaResult <- function(geneSymbol, gseaRes, group, gs, Date) {
-  source("entrezTOname.R")
   # add gene names of leading edge genes to the result
   # no removing duplicated gene names is each leadin edge gene sets
   LEgenes <- entrezTOname(geneSymbol, gseaRes$leadingEdge)

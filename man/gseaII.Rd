@@ -4,12 +4,18 @@
 \alias{gseaII}
 \title{Function "gseaII"}
 \usage{
-gseaII(res_anno, geneSet, Min, Max)
+gseaII(res_anno, geneSet, attr1, attr2, attr3, Min, Max)
 }
 \arguments{
 \item{res_anno}{a data frame with the result of DESeq along with gene annotation}
 
 \item{geneSet}{a gene set list, consisting of entrezgene IDs}
+
+\item{attr1}{a character variable indicating the based on gene symbols in the input matrix}
+
+\item{attr2}{the name of column representing p values in the input matrix}
+
+\item{attr3}{the name of column representing log2FoldChange in the input matrix}
 
 \item{Min}{a numeric variable representing the minimum size of pathway accepted for GSEA}
 

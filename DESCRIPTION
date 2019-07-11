@@ -27,3 +27,23 @@ Imports:
     ggpubr
 LazyData: true
 RoxygenNote: 6.1.1
+Collate: 
+    'annotation.R'
+    'dataPreprocess.R'
+    'deseq2.R'
+    'deseq2Res.R'
+    'ensemblTOentrez.R'
+    'ensemblTOname_I.R'
+    'ensemblTOname_II.R'
+    'entrezTOname.R'
+    'geneEXP.R'
+    'gseaI.R'
+    'gseaII.R'
+    'gseaResult.R'
+    'nameTOentrez.R'
+    'normalization.R'
+    'plotDensity.R'
+    'plotGSEA.R'
+    'plotVolcano.R'
+    'ssgseaPlot.R'
+    'ssgseaResult.R'

@@ -2,7 +2,8 @@
 % Please edit documentation in R/gseaResult.R
 \name{gseaResult}
 \alias{gseaResult}
-\title{Function "gseaResult"}
+\title{Function "gseaResult"
+This function stores customized results from GSEA}
 \usage{
 gseaResult(geneSymbol, gseaRes, group, gs, Date)
 }
@@ -21,5 +22,6 @@ gseaResult(geneSymbol, gseaRes, group, gs, Date)
 a list of sorted GSEA result and significant pathways with different FDR controls.
 }
 \description{
+Function "gseaResult"
 This function stores customized results from GSEA
 }
