@@ -4,15 +4,21 @@
 \alias{ensemblTOentrez}
 \title{Function "ensemblTOentrez"}
 \usage{
-ensemblTOentrez(geneExp, geneSymbol)
+ensemblTOentrez(geneExp, geneSymbol, condition, n1, n2)
 }
 \arguments{
 \item{geneExp}{a data object with ensembl IDs as rownames}
 
 \item{geneSymbol}{a data frame with all gene annotation information}
+
+\item{condition}{character vector containing group condition}
+
+\item{n1}{the number of one condition in "condition"}
+
+\item{n2}{the numbe of the second condition in "condition"}
 }
 \value{
-a list consisting of a new data object with entrezgene ID as rownames
+an ExpressionSet object with matrix based on entrez gene IDs
 }
 \description{
 This function can be called without DESeq, input a gene expression matrix based on ensembl IDs

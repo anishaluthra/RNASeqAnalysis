@@ -9,9 +9,6 @@
 #' @return a list of pathways with gene names
 #' @export
 
-# Transfer the entrez gene IDs in geneSet to gene names
-# make sure the input geneSet is a list of pathways with character type entrez gene IDs
-
 entrezTOname <- function(geneSymbol, geneSet) {
   geneSymbol$entrezgene_id <- as.character(geneSymbol$entrezgene_id)
   geneset <- vector(mode = "list")

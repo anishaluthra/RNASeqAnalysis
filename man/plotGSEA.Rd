@@ -5,7 +5,7 @@
 \title{Function "plotGSEA"}
 \usage{
 plotGSEA(data_info, gseaRes, gs, gs_name, geneRank, gene.esI, title, K,
-  type, attr1, attr2, conditionI, conditionII, N, H1, W1, H2, W2)
+  type, attr1, attr2, conditionI, conditionII, N, H1, W1, H2, W2, H3, W3)
 }
 \arguments{
 \item{data_info}{data frame containing clinical information}
@@ -43,6 +43,10 @@ plotGSEA(data_info, gseaRes, gs, gs_name, geneRank, gene.esI, title, K,
 \item{H2}{height for plotting enriched pathways}
 
 \item{W2}{width for plotting enriched pathways}
+
+\item{H3}{height for ES plot}
+
+\item{W3}{width for ES plot}
 }
 \value{
 a list of plot object

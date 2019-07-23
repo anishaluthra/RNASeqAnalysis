@@ -15,11 +15,11 @@ normalization <- function(res, geneLGC) {
   ## Gene expression normalization(use conditional quantile normalization)
   gccontent <- rep(0, nrow(res))
   gccontent <- sapply(X=1:nrow(res), FUN=function(x) {
-    gccontent[x] <- geneLGC$`Gene % GC content`[which(geneLGC$ensemble_gene_id==rownames(res)[x])]
+    gccontent[x] <- geneLGC$`Gene % GC content`[which(geneLGC$ensembl_gene_id==rownames(res)[x])]
   })
   glength <- rep(0, nrow(res))
   glength <- sapply(X=1:nrow(res), FUN=function(x) {
-    glength[x] <- geneLGC$`Transcript length (including UTRs and CDS)`[which(geneLGC$ensemble_gene_id==rownames(res)[x])]
+    glength[x] <- geneLGC$`Transcript length (including UTRs and CDS)`[which(geneLGC$ensembl_gene_id==rownames(res)[x])]
   })
   cqn <- cqn(counts=res, x=gccontent, lengths=glength, lengthMethod="smooth")
   geneExp <- cqn$y + cqn$offset

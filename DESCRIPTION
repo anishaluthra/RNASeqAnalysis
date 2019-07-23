@@ -24,7 +24,8 @@ Imports:
     BiocParallel,
     methods,
     magrittr,
-    ggpubr
+    ggpubr,
+    dplyr
 LazyData: true
 RoxygenNote: 6.1.1
 Collate: 
@@ -44,6 +45,8 @@ Collate:
     'normalization.R'
     'plotDensity.R'
     'plotGSEA.R'
+    'plotNES.R'
     'plotVolcano.R'
+    'plotVolcanoII.R'
     'ssgseaPlot.R'
     'ssgseaResult.R'

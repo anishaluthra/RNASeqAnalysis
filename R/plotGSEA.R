@@ -23,19 +23,30 @@
 #' @param W1 width for plotting significant pathway
 #' @param H2 height for plotting enriched pathways
 #' @param W2 width for plotting enriched pathways
+#' @param H3 height for ES plot
+#' @param W3 width for ES plot
 #' @return a list of plot object
 #' @export
 
 plotGSEA <- function(data_info, gseaRes, gs, gs_name, geneRank, gene.esI, title, K, type, attr1, attr2,
-                     conditionI, conditionII, N, H1, W1, H2, W2) {
+                     conditionI, conditionII, N, H1, W1, H2, W2, H3, W3) {
   # plot the normalized enrichment scores
   # color the bar indicating whether or not the pathway was significant
-  nes <- ggplot(gseaRes, aes(reorder(pathway, NES), NES)) +
-    geom_col(aes(fill=padj<0.1)) +
+  gseaResI <- gseaRes
+  gseaResI$Group <- rep("padj<0.1", nrow(gseaResI))
+  gseaResI$Group <- sapply(1:nrow(gseaResI), FUN=function(x) {
+    ifelse(gseaResI$padj[x] <= 0.1, "padj<0.1", "padj>=0.1")
+  }) %>% as.factor()
+  myPalette <- c("padj<0.1" = "#00BFC4", "padj>=0.1" = "#F8766D")
+  myBreaks <- c("padj<0.1", "padj>=0.1")
+
+  nes <- ggplot(gseaResI, aes(reorder(pathway, NES), NES)) +
+    geom_col(aes(fill=Group)) +
     coord_flip() +
     labs(x="Pathway", y="Normalized Enrichment Score",
          title=paste0(title, " geneset NES from GSEA (", type, ")")) +
-    theme_minimal()
+    theme_minimal() +
+    scale_fill_manual(breaks=myBreaks, values=myPalette)
 
   # plot heatmap for genes from the intersection of top K significant(least pval) pathways and "CORALINE Signature"
   # extract all genes from "CORALINE Signature"
@@ -195,12 +206,12 @@ plotGSEA <- function(data_info, gseaRes, gs, gs_name, geneRank, gene.esI, title,
 
   # save figures
   nes <- arrangeGrob(nes, ncol = 1, nrow = 1)
-  ggsave(nes, file=paste0("ESnormalized_", title, "_", Date, ".pdf"), height=80, width=45, limitsize=FALSE)
+  ggsave(nes, file=paste0("ESnormalized_", title, "_", Date, ".pdf"), height=H3, width=W3, limitsize=FALSE)
   #sig <- vector(mode = "list")
   sigCore <- vector(mode = "list")
   #enr <- vector(mode = "list")
   enrCore <- vector(mode = "list")
-  for (i in 1:length(hmSigI)) {
+  for (i in 1:length(hmCoreSigI)) {
   #  sig[[i]] <- arrangeGrob(hmSigI[[i]]$gtable, hmSigII[[i]]$gtable, ncol = 2, nrow = 1)
     sigCore[[i]] <- arrangeGrob(hmCoreSigI[[i]]$gtable, hmCoreSigII[[i]]$gtable, ncol = 2, nrow = 1)
   #  ggsave(sig[[i]], file=paste0("SignificantPathway_", i, "_", type, "_", title, "_", Date, ".pdf"),
@@ -208,7 +219,7 @@ plotGSEA <- function(data_info, gseaRes, gs, gs_name, geneRank, gene.esI, title,
     ggsave(sigCore[[i]], file=paste0("CoreSignificantPathway_", i, "_", type, "_", title, "_", Date, ".pdf"),
            height=H1, width=W1, limitsize=FALSE)
   }
-  for (i in 1:length(hmEnrI)) {
+  for (i in 1:length(hmCoreEnrI)) {
   #  enr[[i]] <- arrangeGrob(hmEnrI[[i]]$gtable, hmEnrII[[i]]$gtable, ncol = 2, nrow = 1)
     enrCore[[i]] <- arrangeGrob(hmCoreEnrI[[i]]$gtable, hmCoreEnrII[[i]]$gtable, ncol = 2, nrow = 1)
   #  ggsave(enr[[i]], file=paste0("EnrichedPathway_", i, "_", type, "_", title, "_", Date, ".pdf"),
