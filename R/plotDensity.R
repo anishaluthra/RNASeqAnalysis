@@ -29,9 +29,19 @@ plotDensity <- function(info, ssgseaRes, type, Date) {
   #  }
   #}
 
+  # construct color palette
+  myColorI <- c("purple", "orange")
+  myColorII <- c("red", "purple", "orange")
+  if (length(unique(info$Group))==2) {
+    Palette = myColorI
+  } else {
+    Palette = myColorII
+  }
+  names(Palette) <- as.character(unique(info$Group))
+
   plotDen <- ggscatterhist(df, x = "UPssgsea", y = "DNssgsea",
                            color = "Group", size = 3, alpha = 0.6,
-                           palette = c("red", "purple", "orange"),
+                           palette = Palette,
                            #xlim = c(Min, Max), ylim = c(Min, Max),
                            margin.params = list(fill = "Group", color = "black", size = 0.2),
                            legend = "right")
