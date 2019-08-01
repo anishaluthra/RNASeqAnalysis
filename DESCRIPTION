@@ -25,7 +25,9 @@ Imports:
     methods,
     magrittr,
     ggpubr,
-    dplyr
+    dplyr,
+    grid,
+    ComplexHeatmap
 LazyData: true
 RoxygenNote: 6.1.1
 Collate: 
@@ -45,6 +47,7 @@ Collate:
     'normalization.R'
     'plotDensity.R'
     'plotGSEA.R'
+    'plotHeatmap_POI.R'
     'plotNES.R'
     'plotVolcano.R'
     'plotVolcanoII.R'
