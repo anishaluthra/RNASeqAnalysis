@@ -6,12 +6,14 @@
 #' @importFrom ggplot2 ggsave
 #' @param info a data frame with required clinical information
 #' @param ssgseaRes the result matrix of ssGSEA
+#' @param axis1 a character variable indicating the label for x axis
+#' @param axis2 a character variable indicating the label for y axis
 #' @param type type of data, group information
 #' @param Date a Date object obtained from Sys.Date
 #' @return the density plot object
 #' @export
 
-plotDensity <- function(info, ssgseaRes, type, Date) {
+plotDensity <- function(info, ssgseaRes, axis1 = "UPssgsea", axis2 = "DOWNssgsea", type, Date) {
   #groupI <- info$SampleID[which(info$Group == group1)]
   #groupII <- info$SampleID[which(info$Group == group2)]
   #groupIII <- info$SampleID[which(info$Group == group3)]
@@ -44,7 +46,7 @@ plotDensity <- function(info, ssgseaRes, type, Date) {
                            palette = Palette,
                            #xlim = c(Min, Max), ylim = c(Min, Max),
                            margin.params = list(fill = "Group", color = "black", size = 0.2),
-                           legend = "right")
+                           legend = "right", xlab = axis1, ylab = axis2)
   #geom_text(x = 0.7, y = 0.92, label = paste0("p_UP=", rtest[1])) +
   #geom_text(x = 0.85, y = 0.12, label = paste0("p_DOWN=", rtest[2]), angle = 270)
 

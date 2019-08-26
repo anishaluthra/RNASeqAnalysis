@@ -4,12 +4,14 @@
 \alias{annotation}
 \title{Function "annotation"}
 \usage{
-annotation(genes, filter)
+annotation(genes, filter, dataSet = "hsapiens_gene_ensembl")
 }
 \arguments{
 \item{genes}{a vector of gene IDs such as ensembl ID, gene name}
 
 \item{filter}{a string that is used as the base for extraction of gene information}
+
+\item{dataSet}{the name for the dataset to be used}
 }
 \value{
 a data frame with corresponding attributes of the input gene IDs

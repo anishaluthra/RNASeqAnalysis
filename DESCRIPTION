@@ -27,11 +27,14 @@ Imports:
     ggpubr,
     dplyr,
     grid,
-    ComplexHeatmap
+    ComplexHeatmap,
+    genefilter,
+    CancerSubtypes
 LazyData: true
 RoxygenNote: 6.1.1
 Collate: 
     'annotation.R'
+    'annotationII.R'
     'dataPreprocess.R'
     'deseq2.R'
     'deseq2Res.R'
@@ -40,6 +43,7 @@ Collate:
     'ensemblTOname_II.R'
     'entrezTOname.R'
     'geneEXP.R'
+    'geneSelect.R'
     'gseaI.R'
     'gseaII.R'
     'gseaResult.R'

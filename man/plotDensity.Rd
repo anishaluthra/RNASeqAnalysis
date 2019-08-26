@@ -4,12 +4,17 @@
 \alias{plotDensity}
 \title{Function "plotDensity"}
 \usage{
-plotDensity(info, ssgseaRes, type, Date)
+plotDensity(info, ssgseaRes, axis1 = "UPssgsea", axis2 = "DOWNssgsea",
+  type, Date)
 }
 \arguments{
 \item{info}{a data frame with required clinical information}
 
 \item{ssgseaRes}{the result matrix of ssGSEA}
+
+\item{axis1}{a character variable indicating the label for x axis}
+
+\item{axis2}{a character variable indicating the label for y axis}
 
 \item{type}{type of data, group information}
 

@@ -17,6 +17,7 @@ dataPreprocess <- function(dataInfo, dataMatrix, pcg_ense, condition, attr1, att
   # select the desired columns from dataInfo
   Info <- dataInfo[, c(attr1, attr2)]
   Info <- Info[which(Info[, attr2] %in% c(type1, type2)), ]
+  Info <- Info[which(Info[, attr1] %in% colnames(dataMatrix)), ]
 
   # create a Type column to store the group information of each sample
   Info$Type <- rep("type", dim(Info)[1])

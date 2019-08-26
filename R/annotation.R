@@ -4,14 +4,15 @@
 #' @importFrom biomaRt useMart getBM
 #' @param genes a vector of gene IDs such as ensembl ID, gene name
 #' @param filter a string that is used as the base for extraction of gene information
+#' @param dataSet the name for the dataset to be used
 #' @return a data frame with corresponding attributes of the input gene IDs
 #' @export
 
-annotation <- function(genes, filter) {
+annotation <- function(genes, filter, dataSet = "hsapiens_gene_ensembl") {
   # create gene annotation(provide corresponding gene names and entrez IDs)
   # select a database and a dataset to use
   mymart <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
-                    dataset = "hsapiens_gene_ensembl",
+                    dataset = dataSet,
                     host = 'www.ensembl.org')
   # select a dataset and update the Mart object
   #mydataset <- useDataset("hsapiens_gene_ensembl", mart = mymart)

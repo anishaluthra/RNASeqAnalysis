@@ -15,6 +15,7 @@ ensemblTOname_II <- function(geneExp, geneSymbol) {
   geneExpI <- aggregate(geneExpI[, 1:ncol(geneExp)], by=list(gene_name=geneExpI$external_gene_name), FUN=mean)
   row.names(geneExpI) <- as.character(geneExpI$gene_name)
   geneExpI <- as.matrix(geneExpI)[, -1]
+  class(geneExpI) <- "numeric"
 
   # return result
   return(list("geneExp" = geneExpI))

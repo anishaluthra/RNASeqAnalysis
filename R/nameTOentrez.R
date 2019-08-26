@@ -9,11 +9,12 @@
 #' @export
 
 nameTOentrez <- function(geneSymbol, geneSet) {
-  geneSymbol$external_gene_name <- geneSymbol$external_gene_name
+  geneSymbol$external_gene_name <- as.character(geneSymbol$external_gene_name)
   geneset <- vector(mode = "list")
   for (i in 1:length(geneSet)) {
     genes <- data.frame(external_gene_name = geneSet[[i]])
-    genes <- merge(genes, geneSymbol[, c("entrezgene_id", "external_gene_name")], by="external_gene_name")
+    genes$external_gene_name <- as.character(genes$external_gene_name)
+    genes <- left_join(genes, geneSymbol[, c("entrezgene_id", "external_gene_name")])
     geneset[[i]] <- as.character(genes$entrezgene_id)
     geneset[[i]] <- geneset[[i]][!is.na(geneset[[i]])] %>% unique()
   }

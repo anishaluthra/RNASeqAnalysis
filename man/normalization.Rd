@@ -4,12 +4,14 @@
 \alias{normalization}
 \title{Function "normalization"}
 \usage{
-normalization(res, geneLGC)
+normalization(res, geneLGC, attr)
 }
 \arguments{
 \item{res}{unnormalized gene expresison matrix based on ensembl IDs}
 
 \item{geneLGC}{a data frame with gene length and GC content information}
+
+\item{attr}{a character variable indicating the column name of geneLGC which res is based on.}
 }
 \value{
 a list consisting of normalized gene expression matrix.
