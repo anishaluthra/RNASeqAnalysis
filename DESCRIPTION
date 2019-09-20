@@ -33,6 +33,7 @@ Imports:
 LazyData: true
 RoxygenNote: 6.1.1
 Collate: 
+    'NESplot.R'
     'annotation.R'
     'annotationII.R'
     'dataPreprocess.R'

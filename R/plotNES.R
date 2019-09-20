@@ -1,6 +1,6 @@
 #' Function "plotNES"
 #'
-#' This function plots a comparison pathway barplot for selected cohorts and chosen gene sets. Only pathways that
+#' This function plots a comparison pathway barplot for selected cohorts and chosen gene sets.
 #' @importFrom magrittr %>%
 #' @importFrom gridExtra arrangeGrob
 #' @importFrom dplyr left_join

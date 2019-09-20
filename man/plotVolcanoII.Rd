@@ -4,13 +4,16 @@
 \alias{plotVolcanoII}
 \title{Function "plotVolcanoII"}
 \usage{
-plotVolcanoII(fc, pval, res, attr1, attr2, mytitle, group, UPgenes,
-  DWgenes, xmin, xmax, ymin, ymax, W, Date)
+plotVolcanoII(palette = c("red2", "royalblue", "grey70"), fc = 0.2,
+  pval = 0.1, res, attr1, attr2, mytitle, group, UPgenes, DWgenes, xmin,
+  xmax, ymin, ymax, W, Date)
 }
 \arguments{
-\item{fc}{a numeric variable representing the log2FoldChange cutoff}
+\item{palette}{a vector of colors used in plotting the volcano. Default is c("red2", "royalblue", "grey70").}
 
-\item{pval}{a numeric variable representing the adjusted p value cutoff}
+\item{fc}{a numeric variable representing the log2FoldChange cutoff. Default is 0.2}
+
+\item{pval}{a numeric variable representing the adjusted p value cutoff. Default is 0.1}
 
 \item{res}{a data frame containing the differential gene expression analysis result(log2FoldChange and padj)}
 

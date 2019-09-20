@@ -31,5 +31,5 @@ plotNES(gseaRes, N, gs, fdr, s, v, h, W, H, Date)
 a list of ggplot object of the comparison plot of direction-consistent pathways, up and down-regulated pathways
 }
 \description{
-This function plots a comparison pathway barplot for selected cohorts and chosen gene sets. Only pathways that
+This function plots a comparison pathway barplot for selected cohorts and chosen gene sets.
 }

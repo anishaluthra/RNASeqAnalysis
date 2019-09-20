@@ -4,13 +4,13 @@
 \alias{plotHeatmap_POI}
 \title{Function "plotHeatmap_POI"}
 \usage{
-plotHeatmap_POI(condition = c("mutant", "wildtype"), geneES,
-  palette1 = c("#EE82EE", "#00FFFF"), palette2 = c("#A6CEE3",
-  "#1F78B4", "#B2DF8A", "#33A02C", "#FB9A99", "#E31A1C", "#FDBF6F",
-  "#FF7F00", "#CAB2D6", "#6A3D9A"), conditionName, groupName = "Pathway",
-  legendName = "Gene expression", POI, GOI, distance = "spearman",
-  method = "ward.D2", title, s1 = 15, s2 = 4, s3 = 11, H = 11,
-  W = 28, Date)
+plotHeatmap_POI(condition = c("mutant", "wildtype"), geneES, group,
+  palette1, palette2 = c("#A6CEE3", "#1F78B4", "#B2DF8A", "#33A02C",
+  "#FB9A99", "#E31A1C", "#FDBF6F", "#FF7F00", "#CAB2D6", "#6A3D9A"),
+  groupName = "Pathway", legendName = "Gene expression", POI, GOI,
+  rowName = TRUE, distance = "spearman", method = "ward.D2", title,
+  s1 = 15, s2 = 4, s3 = 11, s4 = 6, s5 = 12, H = 11, W = 28,
+  Date)
 }
 \arguments{
 \item{condition}{a vector of characters representing all groups of samples, default is c("mutant", "wildtype").}
@@ -18,12 +18,12 @@ plotHeatmap_POI(condition = c("mutant", "wildtype"), geneES,
 \item{geneES}{an ExpressionSet object representing the gene expression matrix, at least two columns in pData(geneES) is required,
 "SampledID" indicating samples and "Group" indicating which condition the samples are in.}
 
-\item{palette1}{a character type vector representing the colors used for distinguishing "condition", default is c("#EE82EE", "#00FFFF").}
+\item{group}{a data frame with each column a different column annotation which needs to be added to the heatmap, rownames correspond to sample ID.}
+
+\item{palette1}{a named list with color palettes for each annotation, each element in the list should be a named vector.}
 
 \item{palette2}{a character type vector representing the colors used for distinguishing "POI", default is
 c("#A6CEE3", "#1F78B4", "#B2DF8A", "#33A02C", "#FB9A99", "#E31A1C", "#FDBF6F", "#FF7F00", "#CAB2D6", "#6A3D9A").}
-
-\item{conditionName}{a character variable indicating the condition name.}
 
 \item{groupName}{a character variable indicating the POI name, default is "Pathway".}
 
@@ -32,6 +32,8 @@ c("#A6CEE3", "#1F78B4", "#B2DF8A", "#33A02C", "#FB9A99", "#E31A1C", "#FDBF6F", "
 \item{POI}{a character type vector consisting of names of selected pathways.}
 
 \item{GOI}{a list consisting of gene names in the pathways of "POI"(can be all or partial genes).}
+
+\item{rowName}{a boolean variable indicating whether to show the row names. Default is TRUE.}
 
 \item{distance}{a character variable indicating which distance measure to be used in clustering, either one of
 "euclidean", "maximum", "manhattan", "canberra", "binary", "minkowski", "pearson", "spearman", "kendall",
@@ -46,6 +48,10 @@ or a dist object. Default is "spearman".}
 \item{s2}{a numerical variable indicating the fontsize of row names. Default is 4.}
 
 \item{s3}{a numerical variable indicating the fontsize of column names. Default is 11.}
+
+\item{s4}{a numerical variable indicating the height and width of grid in defined unit of column legend. Default is 6.}
+
+\item{s5}{a numerical variable indicating the width of the dendrogram for columns and rows. Default is 12.}
 
 \item{H}{a numerical variable indicating the height of saved figure. Default is 11.}
 
